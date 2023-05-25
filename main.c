@@ -37,10 +37,14 @@ int main(int argc, char *argv[])
 				push(&stack, inst_line);
 			else if (strcmp(op, "pall") == 0)
 				pall(&stack);
-			else if (strcmp(op, "pall") == 0)
+			else if (strcmp(op, "pint") == 0)
 				pint(&stack, inst_line);
 			else if (strcmp(op, "pop") == 0)
 				pop(&stack, inst_line);
+			else if (strcmp(op, "add") == 0)
+				add(&stack, inst_line);
+			else if (strcmp(op, "nop") == 0)
+				nop(&stack, inst_line);
 			else
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n", inst_line, op);
