@@ -45,6 +45,12 @@ int main(int argc, char *argv[])
 				add(&stack, inst_line);
 			else if (strcmp(op, "nop") == 0)
 				nop(&stack, inst_line);
+			else if (strcmp(op, "sub") == 0)
+				sub(&stack, inst_line);
+			else if (strcmp(op, "mul") == 0)
+				mul(&stack, inst_line);
+			else if (strcmp(op, "mod") == 0)
+				mod(&stack, inst_line);
 			else
 			{
 				fprintf(stderr, "L%d: unknown instruction %s\n", inst_line, op);
