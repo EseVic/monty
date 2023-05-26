@@ -10,8 +10,25 @@
  */
 int exec_insts(char *op, stack_t **stack, unsigned int inst_line)
 {
+	char *end;
+	int n;
+
 	if (strcmp(op, "push") == 0)
-		push(stack, inst_line);
+	{
+		op = strtok(NULL, " \t\r");
+		if (!op || op[0] == '#')
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", inst_line);
+			return (EXIT_FAILURE);
+		}
+		n = (int) strtol(op, &end, 10);
+		if (*end != '\0' || n <= 0)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", inst_line);
+			return (EXIT_FAILURE);
+		}
+		push(stack, n);
+	}
 	else if (strcmp(op, "pall") == 0)
 		pall(stack);
 	else if (strcmp(op, "pint") == 0)
