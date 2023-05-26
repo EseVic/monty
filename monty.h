@@ -38,6 +38,9 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 void push(stack_t **stack, unsigned int inst_line);
 void pall(stack_t **stack);
 bool is_integer(const char *str);
