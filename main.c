@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 	{
 		line[strcspn(line, "\n")] = '\0';
 		op = strtok(line, " \t\r");
-		op[strcspn(op, "\t\r")] = '\0';
+		inst_line++;
 		if (op && op[0] != '#')
 		{
 			printf("op: %s, inst_line: %u\n", op, inst_line);
@@ -42,7 +42,6 @@ int main(int argc, char *argv[])
 				exit(EXIT_FAILURE);
 			}
 		}
-		inst_line++;
 	}
 	free_stack(&stack);
 	fclose(file);
