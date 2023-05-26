@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <ctype.h>
 
 #define MAX_LINE_LENGTH 1024
 
@@ -51,5 +52,6 @@ void swap(stack_t **stack, unsigned int inst_line);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
 int exec_insts(char *op, stack_t **stack, unsigned int inst_line);
+int line_is_empty(const char *str);
 
 #endif /* MONTY_H */

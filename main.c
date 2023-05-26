@@ -38,7 +38,8 @@ int main(int argc, char *argv[])
 				fclose(file);
 				exit(EXIT_FAILURE);
 			}
-			inst_line++;
+			if (!line_is_empty(op))
+				inst_line++;
 		}
 	}
 	free_stack(&stack);
