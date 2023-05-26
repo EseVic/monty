@@ -50,5 +50,6 @@ void pop(stack_t **stack, unsigned int inst_line);
 void swap(stack_t **stack, unsigned int inst_line);
 void add(stack_t **stack, unsigned int line_number);
 void nop(stack_t **stack, unsigned int line_number);
+int exec_insts(char *op, stack_t **stack, unsigned int inst_line);
 
 #endif /* MONTY_H */
