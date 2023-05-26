@@ -7,6 +7,7 @@
  *
  * Return: exit code of the running session
  */
+
 int main(int argc, char *argv[])
 {
 	char *op;
@@ -14,14 +15,13 @@ int main(int argc, char *argv[])
 	FILE *file;
 	stack_t *stack = NULL;
 	unsigned int inst_line = 1;
-
 	if (argc != 2)
 	{
 		fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
-	if (!file)
+	if (file == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
@@ -30,17 +30,16 @@ int main(int argc, char *argv[])
 	{
 		line[strcspn(line, "\n")] = '\0';
 		op = strtok(line, " \t\r");
-		inst_line++;
 		if (op && op[0] != '#')
 		{
-			if (exec_insts(op, &stack, inst_line) == EXIT_FAILURE)
+			if (execute_instruction(op, &stack, inst_line) == EXIT_FAILURE)
 			{
-				fprintf(stderr, "L%d: unknown instruction %s\n", inst_line, op);
 				free_stack(&stack);
 				fclose(file);
 				exit(EXIT_FAILURE);
 			}
 		}
+		inst_line++;
 	}
 	free_stack(&stack);
 	fclose(file);
