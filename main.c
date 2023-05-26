@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 		exit(EXIT_FAILURE);
 	}
 	file = fopen(argv[1], "r");
-	if (file == NULL)
+	if (!file)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
@@ -34,6 +34,7 @@ int main(int argc, char *argv[])
 		{
 			if (exec_insts(op, &stack, inst_line) == EXIT_FAILURE)
 			{
+				fprintf(stderr, "L%d: unknown instruction %s\n", inst_line, op);
 				free_stack(&stack);
 				fclose(file);
 				exit(EXIT_FAILURE);
