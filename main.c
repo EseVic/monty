@@ -40,8 +40,8 @@ int main(int argc, char *argv[])
 				fclose(file);
 				exit(EXIT_FAILURE);
 			}
-			inst_line++;
 		}
+		inst_line++;
 	}
 	free_stack(&stack);
 	fclose(file);
