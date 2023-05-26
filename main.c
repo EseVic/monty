@@ -31,8 +31,10 @@ int main(int argc, char *argv[])
 	{
 		line[strcspn(line, "\n")] = '\0';
 		op = strtok(line, " \t\r");
+		op[strcspn(op, "\t\r")] = '\0';
 		if (op && op[0] != '#')
 		{
+			printf("op: %s, inst_line: %u\n", op, inst_line);
 			if (exec_insts(op, &stack, inst_line) == EXIT_FAILURE)
 			{
 				free_stack(&stack);
