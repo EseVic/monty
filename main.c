@@ -32,7 +32,7 @@ int main(int argc, char *argv[])
 		op = strtok(line, " \t\r");
 		if (op && op[0] != '#')
 		{
-			if (execute_instruction(op, &stack, inst_line) == EXIT_FAILURE)
+			if (exec_insts(op, &stack, inst_line) == EXIT_FAILURE)
 			{
 				free_stack(&stack);
 				fclose(file);

@@ -11,7 +11,7 @@
 int exec_insts(char *op, stack_t **stack, unsigned int inst_line)
 {
 	if (strcmp(op, "push") == 0)
-		push(stack, n);
+		push(stack, inst_line);
 	else if (strcmp(op, "pall") == 0)
 		pall(stack);
 	else if (strcmp(op, "pint") == 0)
