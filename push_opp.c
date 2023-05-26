@@ -36,4 +36,3 @@ void push(stack_t **stack, unsigned int inst_line)
 
 	*stack = new;
 }
-

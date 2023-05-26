@@ -30,6 +30,7 @@ int main(int argc, char *argv[])
 	{
 		line[strcspn(line, "\n")] = '\0';
 		op = strtok(line, " \t\r");
+		inst_line++;
 		if (op && op[0] != '#')
 		{
 			if (exec_insts(op, &stack, inst_line) == EXIT_FAILURE)
@@ -39,7 +40,6 @@ int main(int argc, char *argv[])
 				fclose(file);
 				exit(EXIT_FAILURE);
 			}
-			inst_line++;
 		}
 	}
 	free_stack(&stack);
