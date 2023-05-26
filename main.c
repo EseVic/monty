@@ -7,7 +7,6 @@
  *
  * Return: exit code of the running session
  */
-
 int main(int argc, char *argv[])
 {
 	char *op;
@@ -33,7 +32,6 @@ int main(int argc, char *argv[])
 		op = strtok(line, " \t\r");
 		if (op && op[0] != '#')
 		{
-			printf("op: %s, inst_line: %u\n", op, inst_line);
 			if (exec_insts(op, &stack, inst_line) == EXIT_FAILURE)
 			{
 				free_stack(&stack);
